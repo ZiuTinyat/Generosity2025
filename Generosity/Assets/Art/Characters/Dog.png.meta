@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,406 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Dog_Head
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 2251
+        width: 362
+        height: 308
+      alignment: 9
+      pivot: {x: 0.26863158, y: 0.13742264}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cedfbcc3e18c54b9cc35ed217852a7
+      internalID: -1061101585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Mouth
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 2151
+        width: 133
+        height: 79
+      alignment: 9
+      pivot: {x: 0.13265096, y: 0.2349529}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d672dcd7e5c542a47894b8f63c7c4d17
+      internalID: 980800959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Ear
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 1795
+        width: 203
+        height: 235
+      alignment: 9
+      pivot: {x: 0.820903, y: 0.86630756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a861c76a883fb748b55f5c86040317a
+      internalID: 1930559804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_B_R_Leg_01
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 1638
+        width: 267
+        height: 287
+      alignment: 9
+      pivot: {x: 0.6829875, y: 0.7431934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e00967406ab510438a856183f58212b
+      internalID: -1647952135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F_R_Leg_01
+      rect:
+        serializedVersion: 2
+        x: 2388
+        y: 1651
+        width: 170
+        height: 174
+      alignment: 9
+      pivot: {x: 0.5410573, y: 0.8610159}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdd0f35a40142e4ab0f54799736661b
+      internalID: -1749901769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Leash
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1580
+        width: 456
+        height: 82
+      alignment: 9
+      pivot: {x: 0.9744929, y: 0.7837271}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cabbfd47125fa4aa6578f131b21570
+      internalID: 1709439467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Body_Bare
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 1023
+        width: 771
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b0c5092d56c8647a1b6b63cb171009
+      internalID: 771451644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_7
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 1276
+        width: 106
+        height: 281
+      alignment: 9
+      pivot: {x: 0.5658477, y: 0.88085806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb99a44bade168847b99dd1a87cd3926
+      internalID: -1383354458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F_R_Leg_02
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 1289
+        width: 165
+        height: 290
+      alignment: 9
+      pivot: {x: 0.38719964, y: 0.8610154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9a2c6443146de40b44cdfd33a5c672
+      internalID: -506454271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Tail_Happy
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 846
+        width: 426
+        height: 281
+      alignment: 9
+      pivot: {x: 0.9751393, y: 0.9388145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287717e5ef0372b49b7c56e948cea67a
+      internalID: 473020621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_10
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 1021
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342c06c577f357a4e9804583dff8c702
+      internalID: 85731211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Body_ServerSuit
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 345
+        width: 771
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86de4ff0cae540844bea91113a017086
+      internalID: 1210036227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_B_L_Leg_01
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 732
+        width: 246
+        height: 233
+      alignment: 9
+      pivot: {x: 0.6040327, y: 0.7496304}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37691d974ccde949bb161de68b269a5
+      internalID: 1780805624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F_L_Leg_01
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 760
+        width: 119
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48936dff9d36c204e99843c891a5e59c
+      internalID: -927979982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_Tail_Normal
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 253
+        width: 431
+        height: 469
+      alignment: 9
+      pivot: {x: 0.9642294, y: 0.95637953}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c98ac26c0314f4388be40eb3a6e8fc
+      internalID: 1408406886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_B_L_Leg_02
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 385
+        width: 109
+        height: 261
+      alignment: 9
+      pivot: {x: 0.45731235, y: 0.86547244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ee22260fa7e6c4d8eae79e6bd410ed
+      internalID: 853287122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_F_L_Leg_02
+      rect:
+        serializedVersion: 2
+        x: 2367
+        y: 384
+        width: 108
+        height: 265
+      alignment: 9
+      pivot: {x: 0.41383418, y: 0.85995567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72eb88a90bb56a47ace9ed49006588e
+      internalID: 469748546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_17
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 379
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6b9a60b7d347c4692a99db574c81f1
+      internalID: -1248741402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dog_18
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 343
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe447ea7cf4e464a8dd39edff2d7c86
+      internalID: 836885411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +518,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dog_10: 85731211
+      Dog_17: -1248741402
+      Dog_18: 836885411
+      Dog_7: -1383354458
+      Dog_B_L_Leg_01: 1780805624
+      Dog_B_L_Leg_02: 853287122
+      Dog_B_R_Leg_01: -1647952135
+      Dog_Body_Bare: 771451644
+      Dog_Body_ServerSuit: 1210036227
+      Dog_Ear: 1930559804
+      Dog_F_L_Leg_01: -927979982
+      Dog_F_L_Leg_02: 469748546
+      Dog_F_R_Leg_01: -1749901769
+      Dog_F_R_Leg_02: -506454271
+      Dog_Head: -1061101585
+      Dog_Leash: 1709439467
+      Dog_Mouth: 980800959
+      Dog_Tail_Happy: 473020621
+      Dog_Tail_Normal: 1408406886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
