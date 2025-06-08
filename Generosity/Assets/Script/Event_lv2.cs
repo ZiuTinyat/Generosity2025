@@ -38,7 +38,7 @@ public class Event_lv2 : MonoBehaviour
 
         // Finding dog
         gc.master.transform.position = newMasterMid.position;
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        yield return new WaitUntil(() => gc.dog.GetBarked());
         yield return new WaitForSeconds(1f);
 
         // Found

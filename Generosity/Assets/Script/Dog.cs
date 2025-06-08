@@ -30,7 +30,8 @@ public class Dog : MonoBehaviour
     public bool canPickup => !isLeashed && !holdingItem;
     private Transform holdingItemParent;
 
-    // TODO Audio
+    // Audio
+    public List<AudioClip> barks;
 
     public void SwitchLeashState() {
         isLeashed = !isLeashed;
@@ -66,6 +67,10 @@ public class Dog : MonoBehaviour
         holdingItem.Used();
         holdingItem = null;
         UpdateInteractable();
+    }
+
+    public bool GetBarked() {
+        return Input.GetKeyDown(KeyCode.Space);
     }
 
     #region Hold Move
@@ -148,8 +153,8 @@ public class Dog : MonoBehaviour
 
         // Bark
         if (Input.GetKeyDown(KeyCode.Space)) {
-            // TODO bark sound
-            
+            audioSource.clip = barks[Random.Range(0, barks.Count)];
+            audioSource.Play();
         }
     }
 

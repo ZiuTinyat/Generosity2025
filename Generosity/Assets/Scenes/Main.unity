@@ -787,6 +787,10 @@ MonoBehaviour:
   freeSpeed: 30
   acceleration: 180
   holdingItem: {fileID: 0}
+  barks:
+  - {fileID: 8300000, guid: 0868d8be7c62a924391fd1cec0c699e3, type: 3}
+  - {fileID: 8300000, guid: 3af8c3c4d30244f4795c54fe90915fb5, type: 3}
+  - {fileID: 8300000, guid: 2e86ea4ae33bc8a4a9829973626d3ce5, type: 3}
 --- !u!70 &402547736
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
