@@ -43,7 +43,7 @@ public class MasterUseInteract : MonoBehaviour, IInteractable
                 break;
             case PickableItem.Harness:
                 Debug.Log("Use Harness");
-                gc.master.UseHarness();
+                gc.dog.UseHarness();
                 break;
             default:
                 break;

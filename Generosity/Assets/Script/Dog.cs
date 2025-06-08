@@ -15,6 +15,8 @@ public class Dog : MonoBehaviour
     [SerializeField] private Transform leash;
     [SerializeField] private Transform leashHead;
     [SerializeField] private Transform mouth;
+    [SerializeField] private SpriteRenderer body;
+    [SerializeField] private Sprite bodySuit;
     [SerializeField] private GameObject woof;
     private GameController gc => GameController.Instance;
     private Master master => gc.master;
@@ -24,7 +26,8 @@ public class Dog : MonoBehaviour
     public float leashedSpeed;
     public float freeSpeed;
     public float acceleration;
-    private MoveState moveState;
+    public bool wearingHarness = false;
+    private MoveState moveState = MoveState.NoMove;
 
     // Pickup
     public Item holdingItem;
@@ -34,20 +37,36 @@ public class Dog : MonoBehaviour
     // Audio
     public List<AudioClip> barks;
 
+    public void UseHarness() {
+        if (wearingHarness) return;
+        wearingHarness = true;
+        body.sprite = bodySuit;
+        SwitchLeashState();
+    }
+
     public void SwitchLeashState() {
         isLeashed = !isLeashed;
         leash.gameObject.SetActive(isLeashed);
         UpdateInteractable();
+        UpdateMoveAnim();
     }
 
     public void Pickup(Item item) {
+        StartCoroutine(PickupCoroutine(item));
+    }
+
+    private IEnumerator PickupCoroutine(Item item) {
         Debug.Assert(!holdingItem);
+        animator.SetTrigger("Pick");
+        HoldMove();
+        yield return new WaitForSeconds(0.25f);
         holdingItemParent = item.transform.parent;
         item.transform.SetParent(mouth);
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.identity;
         item.Picked();
         holdingItem = item;
+        UnholdMove();
         UpdateInteractable();
     }
 
@@ -154,9 +173,12 @@ public class Dog : MonoBehaviour
 
         // Bark
         if (Input.GetKeyDown(KeyCode.Space)) {
-            audioSource.clip = barks[Random.Range(0, barks.Count)];
-            audioSource.Play();
-            StartCoroutine(WoofCoroutine());
+            if (!holdingItem) {
+                audioSource.clip = barks[Random.Range(0, barks.Count)];
+                audioSource.Play();
+                //StartCoroutine(WoofCoroutine());
+                animator.SetTrigger("Bark");
+            }
         }
     }
 
@@ -195,15 +217,15 @@ public class Dog : MonoBehaviour
         moveState = state;
         switch (state) {
             case MoveState.NoMove:
-                // TODO animation
+                UpdateMoveAnim();
                 break;
             case MoveState.RightMove:
                 container.localScale = Vector3.one;
-                // TODO animation
+                UpdateMoveAnim();
                 break;
             case MoveState.LeftMove:
                 container.localScale = new Vector3(-1, 1, 1);
-                // TODO animation
+                UpdateMoveAnim();
                 break;
         }
     }
@@ -223,6 +245,14 @@ public class Dog : MonoBehaviour
         woof.SetActive(true);
         yield return new WaitForSeconds(time);
         woof.SetActive(false);
+    }
+
+    private void UpdateMoveAnim() {
+        if (moveHeld || moveState == MoveState.NoMove) {
+            animator.SetInteger("MoveState", 0);
+        } else {
+            animator.SetInteger("MoveState", isLeashed ? 1 : 2);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

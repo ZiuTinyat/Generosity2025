@@ -14,12 +14,12 @@ public class ApproachableUI : MonoBehaviour
         text.text = txt;
     }
 
-    public void ShowInstruction() {
-        StartCoroutine(ShowInstructionCoroutine(0.2f));
+    public void ShowInstruction(float duration = 0.2f) {
+        StartCoroutine(ShowInstructionCoroutine(duration));
     }
 
-    public void HideInstruction() {
-        StartCoroutine(HideInstructionCoroutine(0.2f));
+    public void HideInstruction(float duration = 0.2f) {
+        StartCoroutine(HideInstructionCoroutine(duration));
     }
 
     IEnumerator ShowInstructionCoroutine(float duration) {

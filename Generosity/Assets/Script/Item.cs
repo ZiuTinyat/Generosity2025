@@ -25,7 +25,7 @@ public class Item : MonoBehaviourRequire<Rigidbody2D>, IInteractable
     public void Picked() {
         rigidBody.isKinematic = true;
         isHeld = true;
-        ui.HideInstruction();
+        ui.HideInstruction(0);
     }
 
     public void Dropoed() {

@@ -84,7 +84,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.3, y: -0.06}
+  m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
   m_Radius: 3
 --- !u!50 &6117322084859606711
@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 6699388429066383176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3, y: -0.26, z: 0}
+  m_LocalPosition: {x: 0.11, y: -0.26, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8450303333924898598, guid: 07ec4b684ddfd274e854cdfd86e0dabd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8450303333924898598, guid: 07ec4b684ddfd274e854cdfd86e0dabd, type: 3}
       propertyPath: m_LocalPosition.y

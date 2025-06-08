@@ -24,7 +24,7 @@ public class LeashInteract : MonoBehaviour, IInteractable
     }
 
     public bool IsInteractable() {
-        return gc.master.wearingHarness;
+        return gc.dog.wearingHarness;
     }
 
     public void Interact() {
@@ -34,7 +34,7 @@ public class LeashInteract : MonoBehaviour, IInteractable
     private IEnumerator LeashCoroutine() {
         gc.dog.HoldMove();
         ui.HideInstruction();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         gc.dog.UnholdMove();
         gc.dog.SwitchLeashState();
         ui.SetText(gc.dog.isLeashed ? unleashText : leashText);

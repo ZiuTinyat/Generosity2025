@@ -19,16 +19,6 @@ public class Master : MonoBehaviour
     public float followDistance;
     private MoveState moveState = MoveState.NoMove;
 
-    // Other
-    public bool wearingHarness = false;
-
-    public void UseHarness() {
-        if (wearingHarness) return;
-        wearingHarness = true;
-        // TODO wear gear
-        dog.SwitchLeashState();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -77,15 +67,15 @@ public class Master : MonoBehaviour
         moveState = state;
         switch (state) {
             case MoveState.NoMove:
-                // TODO animation
+                animator.SetInteger("MoveState", 0);
                 break;
             case MoveState.RightMove:
                 container.localScale = Vector3.one;
-                // TODO animation
+                animator.SetInteger("MoveState", 1);
                 break;
             case MoveState.LeftMove:
                 container.localScale = new Vector3(-1, 1, 1);
-                // TODO animation
+                animator.SetInteger("MoveState", 1);
                 break;
         }
     }
