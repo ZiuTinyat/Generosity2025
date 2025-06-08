@@ -28,6 +28,7 @@ public class Dog : MonoBehaviour
     // Pickup
     public Item holdingItem;
     public bool canPickup => !isLeashed && !holdingItem;
+    private Transform holdingItemParent;
 
     // TODO Audio
 
@@ -39,6 +40,7 @@ public class Dog : MonoBehaviour
 
     public void Pickup(Item item) {
         Debug.Assert(!holdingItem);
+        holdingItemParent = item.transform.parent;
         item.transform.SetParent(mouth);
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.identity;
@@ -49,7 +51,7 @@ public class Dog : MonoBehaviour
 
     public void Drop() {
         Debug.Assert(holdingItem);
-        holdingItem.transform.SetParent(null);
+        holdingItem.transform.SetParent(holdingItemParent);
         holdingItem.transform.localRotation = Quaternion.identity;
         holdingItem.transform.localScale = Vector3.one;
         holdingItem.Dropoed();
@@ -59,6 +61,7 @@ public class Dog : MonoBehaviour
 
     public void Use() {
         Debug.Assert(holdingItem);
+        RemoveInteractable(holdingItem);
         holdingItem.transform.SetParent(null);
         holdingItem.Used();
         holdingItem = null;
@@ -224,4 +227,11 @@ public class Dog : MonoBehaviour
             RemoveInteractable(interactable);
         }
     }
+}
+
+public enum MoveState
+{
+    NoMove,
+    RightMove,
+    LeftMove,
 }
