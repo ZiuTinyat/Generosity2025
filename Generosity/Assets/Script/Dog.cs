@@ -15,6 +15,7 @@ public class Dog : MonoBehaviour
     [SerializeField] private Transform leash;
     [SerializeField] private Transform leashHead;
     [SerializeField] private Transform mouth;
+    [SerializeField] private GameObject woof;
     private GameController gc => GameController.Instance;
     private Master master => gc.master;
 
@@ -155,6 +156,7 @@ public class Dog : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             audioSource.clip = barks[Random.Range(0, barks.Count)];
             audioSource.Play();
+            StartCoroutine(WoofCoroutine());
         }
     }
 
@@ -215,6 +217,12 @@ public class Dog : MonoBehaviour
         leash.localRotation = Quaternion.FromToRotation(leashVec, handVec);
         float r = Mathf.Sqrt(handVec.sqrMagnitude / leashVec.sqrMagnitude);
         leash.localScale = new Vector3(r, 1, 1);
+    }
+
+    private IEnumerator WoofCoroutine(float time = 0.25f) {
+        woof.SetActive(true);
+        yield return new WaitForSeconds(time);
+        woof.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
