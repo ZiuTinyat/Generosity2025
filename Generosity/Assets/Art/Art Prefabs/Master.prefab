@@ -365,7 +365,11 @@ Transform:
   m_LocalPosition: {x: -0.74, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2256546010495913411}
+  - {fileID: 5419137241231201296}
+  - {fileID: 4843653953080614718}
+  - {fileID: 7839631378406761922}
   m_Father: {fileID: 2540626315572836596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &172166711222028526
@@ -534,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2540626315572836596}
+  m_Father: {fileID: 8133436908151777045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.859}
 --- !u!212 &6499078371119432006
 SpriteRenderer:
@@ -618,7 +622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2540626315572836596}
+  m_Father: {fileID: 8133436908151777045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6521171489079225905
 SpriteRenderer:
@@ -698,11 +702,11 @@ Transform:
   m_GameObject: {fileID: 7913523177829285328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.024928557, w: -0.9996892}
-  m_LocalPosition: {x: -2.971897, y: 0.50911593, z: 0}
+  m_LocalPosition: {x: -2.971897, y: 0.5091159, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2540626315572836596}
+  m_Father: {fileID: 8133436908151777045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.857}
 --- !u!212 &8520252025944448057
 SpriteRenderer:
@@ -818,7 +822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2540626315572836596}
+  m_Father: {fileID: 8133436908151777045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3282142413857012152
 SpriteRenderer:
@@ -902,11 +906,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2256546010495913411}
-  - {fileID: 5419137241231201296}
   - {fileID: 4903776838585971297}
-  - {fileID: 4843653953080614718}
-  - {fileID: 7839631378406761922}
   - {fileID: 1550285356339108084}
   - {fileID: 8311091321246846636}
   - {fileID: 165073242176636664}
