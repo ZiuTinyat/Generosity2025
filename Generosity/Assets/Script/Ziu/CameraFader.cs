@@ -37,6 +37,7 @@ namespace Ziu
                 spriteRenderer.color = new Color(0, 0, 0, r);
                 yield return null;
             }
+            spriteRenderer.color = new Color(0, 0, 0, 1);
         }
 
         private IEnumerator FadeinCoroutineInternal(float duration) {
@@ -45,6 +46,7 @@ namespace Ziu
                 spriteRenderer.color = new Color(0, 0, 0, (1 - r));
                 yield return null;
             }
+            spriteRenderer.color = new Color(0, 0, 0, 0);
         }
     }
 }

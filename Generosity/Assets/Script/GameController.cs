@@ -18,7 +18,8 @@ public class GameController : MonoBehaviourSingleton<GameController>
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentLevel = 0;
+        levels[currentLevel].StartLevel();
     }
 
     // Update is called once per frame
