@@ -118,13 +118,13 @@ TextureImporter:
         width: 445
         height: 361
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16166ca6cbb5acc4eb6b24ed323a2d26
+      spriteID: 85ac0e05f753d5f41aabe4a6899ed7a8
       internalID: 1995759076
       vertices: []
       indices: 
@@ -139,41 +139,62 @@ TextureImporter:
         width: 445
         height: 361
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5379b2477b64fb04b8a0e342a7959e19
+      spriteID: c47a897811f96264e82f2ee0a53420fe
       internalID: -811301253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Master_Bubble_Blank
+      name: Bubble_Dog_Woof
       rect:
         serializedVersion: 2
-        x: 1882
-        y: 1110
-        width: 445
-        height: 505
+        x: 1433
+        y: 1262
+        width: 395
+        height: 343
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73bb54f2d6029a2438b04301b667c7aa
-      internalID: -960017310
+      spriteID: 232238c3fdb2cc54287c71d856084bf0
+      internalID: -1336600366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Master_Bubble_Surprise
+      name: Bubble_Master_Blank
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 1110
+        width: 445
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0505d7d8179cd84b82791506ecf5e4b
+      internalID: -133112552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubble_Master_Surprise
       rect:
         serializedVersion: 2
         x: 297
@@ -181,20 +202,20 @@ TextureImporter:
         width: 445
         height: 505
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62828c8711a2bd6428fe585a4c21e878
-      internalID: -284519559
+      spriteID: c435337bd3431fd42b47731d36a707a8
+      internalID: 1674021168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Master_Bubble_Suffering
+      name: Bubble_Master_Suffering
       rect:
         serializedVersion: 2
         x: 917
@@ -202,41 +223,41 @@ TextureImporter:
         width: 444
         height: 505
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ae98c77a14f7a4f90a85f1f98febc9
-      internalID: 1293029333
+      spriteID: 58afe6923e81ba54a9ca266c0b8459f1
+      internalID: 30753680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Event_Bubble_Interact
+      name: Bubble_Event_Interact
       rect:
         serializedVersion: 2
         x: 1487
         y: 688
         width: 444
-        height: 505
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8024255e536c2a419780ee95495a539
-      internalID: -715213686
+      spriteID: fcd782e272b44f0469e83452fee1b340
+      internalID: 1574561461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Master_Bubble_Sad
+      name: Bubble_Master_Sad
       rect:
         serializedVersion: 2
         x: 303
@@ -244,20 +265,20 @@ TextureImporter:
         width: 444
         height: 505
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7364ca02cf34ef345827842384555ef8
-      internalID: 1793194174
+      spriteID: bfa0566a23bab0641b6715dc57196dc2
+      internalID: -914437939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Master_Bubble_Love
+      name: Bubble_Master_Love
       rect:
         serializedVersion: 2
         x: 898
@@ -265,20 +286,20 @@ TextureImporter:
         width: 445
         height: 505
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ae5fe80fe95ce14db80492212c7fb6b
-      internalID: 1272228987
+      spriteID: fa3380a6d8a1849468c74a7ab9f81283
+      internalID: -788143157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Event_Bubble_Blank
+      name: Bubble_Event_Blank
       rect:
         serializedVersion: 2
         x: 1492
@@ -286,14 +307,14 @@ TextureImporter:
         width: 444
         height: 505
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: defe6080df3faf9448e04a1aff596364
-      internalID: -1713504481
+      spriteID: ff898c25fe22b5f4fa10d5abf221f0aa
+      internalID: 506243272
       vertices: []
       indices: 
       edges: []
@@ -309,15 +330,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bubble_Dog_Woof: -1336600366
+      Bubble_Event_Blank: 506243272
+      Bubble_Event_Interact: 1574561461
+      Bubble_Master_Blank: -133112552
+      Bubble_Master_Love: -788143157
+      Bubble_Master_Sad: -914437939
+      Bubble_Master_Suffering: 30753680
+      Bubble_Master_Surprise: 1674021168
+      Bubbles_01_3: -1054009144
+      Bubbles_01_4: -1015815788
+      Bubbles_01_5: 805031212
+      Bubbles_01_7: -263034541
+      Bubbles_01_8: 1704612796
       Cloud_01: 1995759076
       Cloud_02: -811301253
-      Event_Bubble_Blank: -1713504481
-      Event_Bubble_Interact: -715213686
-      Master_Bubble_Blank: -960017310
-      Master_Bubble_Love: 1272228987
-      Master_Bubble_Sad: 1793194174
-      Master_Bubble_Suffering: 1293029333
-      Master_Bubble_Surprise: -284519559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
