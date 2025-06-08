@@ -5,18 +5,29 @@ using UnityEngine;
 public class Master : MonoBehaviour
 {
     // Refs
-    [SerializeField] private Dog dog;
     [SerializeField] private Transform container;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rigidBody;
 
     public Transform handPoint;
+    private GameController gc => GameController.Instance;
+    private Dog dog => gc.dog;
 
     // Move
     public float maxSpeed;
     public float acceleration;
     public float followDistance;
     private MoveState moveState = MoveState.NoMove;
+
+    // Other
+    public bool wearingHarness = false;
+
+    public void UseHarness() {
+        if (wearingHarness) return;
+        wearingHarness = true;
+        // TODO wear gear
+        dog.SwitchLeashState();
+    }
 
     // Start is called before the first frame update
     void Start()

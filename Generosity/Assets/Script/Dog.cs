@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Dog : MonoBehaviour
 {
     // Refs
-    [SerializeField] private Master master;
     [SerializeField] private Transform container;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rigidBody;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private Transform leash;
     [SerializeField] private Transform leashHead;
     [SerializeField] private Transform mouth;
+    private GameController gc => GameController.Instance;
+    private Master master => gc.master;
 
     // Move
     public bool isLeashed;
@@ -24,42 +27,90 @@ public class Dog : MonoBehaviour
 
     // Pickup
     public Item holdingItem;
-    public bool isHoldingItem => holdingItem;
-    private Item itemInRange;
+    public bool canPickup => !isLeashed && !holdingItem;
 
+    // TODO Audio
 
     public void SwitchLeashState() {
         isLeashed = !isLeashed;
         leash.gameObject.SetActive(isLeashed);
+        UpdateInteractable();
     }
 
     public void Pickup(Item item) {
-        if (!isHoldingItem) {
-            if (itemInRange) {
-                item.transform.SetParent(mouth);
-                item.transform.localPosition = Vector3.zero;
-                item.transform.localRotation = Quaternion.identity;
-                item.Picked();
-                holdingItem = item;
-            }
-        }
+        Debug.Assert(!holdingItem);
+        item.transform.SetParent(mouth);
+        item.transform.localPosition = Vector3.zero;
+        item.transform.localRotation = Quaternion.identity;
+        item.Picked();
+        holdingItem = item;
+        UpdateInteractable();
     }
 
     public void Drop() {
-        if (isHoldingItem) {
-            holdingItem.transform.SetParent(null);
-            holdingItem.Dropoed();
-            holdingItem = null;
-        }
+        Debug.Assert(holdingItem);
+        holdingItem.transform.SetParent(null);
+        holdingItem.transform.localRotation = Quaternion.identity;
+        holdingItem.transform.localScale = Vector3.one;
+        holdingItem.Dropoed();
+        holdingItem = null;
+        UpdateInteractable();
     }
 
     public void Use() {
-        if (isHoldingItem) {
-            holdingItem.transform.SetParent(null);
-            holdingItem.Used();
-            holdingItem = null;
+        Debug.Assert(holdingItem);
+        holdingItem.transform.SetParent(null);
+        holdingItem.Used();
+        holdingItem = null;
+        UpdateInteractable();
+    }
+
+    #region Hold Move
+    private int holdCounter = 0;
+    private bool moveHeld => holdCounter > 0;
+    public void HoldMove() {
+        holdCounter++;
+    }
+    public void UnholdMove() {
+        holdCounter--;
+    }
+    #endregion
+
+    #region Interactables
+    private HashSet<IInteractable> interactables = new();
+    private IInteractable currentInteract = null;
+    private void AddInteractable(IInteractable interactable) {
+        if (interactables.Contains(interactable)) return;
+        interactables.Add(interactable);
+        if (!interactable.IsInteractable()) return;
+        if (interactable.ComparePriority(currentInteract) >= 0) {
+            AssignCurrentInteract(interactable);
         }
     }
+    private void RemoveInteractable(IInteractable interactable) {
+        if (!interactables.Contains(interactable)) return;
+        interactables.Remove(interactable);
+        if (currentInteract == interactable) {
+            UpdateInteractable();
+        }
+    }
+    private void UpdateInteractable() {
+        IInteractable potentialInteract = null;
+        foreach (var interactable in interactables) {
+            if (!interactable.IsInteractable()) continue;
+            if (interactable.ComparePriority(potentialInteract) >= 0) {
+                potentialInteract = interactable;
+            }
+        }
+        AssignCurrentInteract(potentialInteract);
+    }
+    private void AssignCurrentInteract(IInteractable interactable) {
+        if (currentInteract == interactable) return;
+        currentInteract?.Deactivate();
+        currentInteract = interactable;
+        currentInteract?.Activate();
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -85,37 +136,45 @@ public class Dog : MonoBehaviour
             SetMoveState(MoveState.NoMove);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            // TODO bark
-        }
+        // Interact
         if (Input.GetKeyDown(KeyCode.E)) {
-            // TODO use
-            SwitchLeashState();
+            if (currentInteract != null) {
+                currentInteract.Interact();
+            }
+        }
+
+        // Bark
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            // TODO bark sound
+            
         }
     }
 
     private void MoveUpdate() {
         // Speed
-        //Vector2 dir = transform.right;
-        float target = isLeashed ? leashedSpeed : freeSpeed;
-        float speed = rigidBody.velocity.x; //Vector2.Dot(rigidBody.velocity, dir);
-        //Vector2 spareVel = rigidBody.velocity - speed * dir;
-        float delta = acceleration * Time.deltaTime;
-        
-        switch (moveState) {
-            case MoveState.NoMove:
-                if (speed > delta) speed -= delta;
-                else if (speed < -delta) speed += delta;
-                else speed = 0;
-                break;
-            case MoveState.RightMove:
-                speed = Mathf.Min(target, speed + delta);
-                break;
-            case MoveState.LeftMove:
-                speed = Mathf.Max(-target, speed - delta);
-                break;
+        if (moveHeld) {
+            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+        } else {
+            //Vector2 dir = transform.right;
+            float target = isLeashed ? leashedSpeed : freeSpeed;
+            float speed = rigidBody.velocity.x; //Vector2.Dot(rigidBody.velocity, dir);
+                                                //Vector2 spareVel = rigidBody.velocity - speed * dir;
+            float delta = acceleration * Time.deltaTime;
+            switch (moveState) {
+                case MoveState.NoMove:
+                    if (speed > delta) speed -= delta;
+                    else if (speed < -delta) speed += delta;
+                    else speed = 0;
+                    break;
+                case MoveState.RightMove:
+                    speed = Mathf.Min(target, speed + delta);
+                    break;
+                case MoveState.LeftMove:
+                    speed = Mathf.Max(-target, speed - delta);
+                    break;
+            }
+            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y); //speed * dir + spareVel;
         }
-        rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y); //speed * dir + spareVel;
 
         // Jump TODO
         // Craw TODO
@@ -148,5 +207,21 @@ public class Dog : MonoBehaviour
         leash.localRotation = Quaternion.FromToRotation(leashVec, handVec);
         float r = Mathf.Sqrt(handVec.sqrMagnitude / leashVec.sqrMagnitude);
         leash.localScale = new Vector3(r, 1, 1);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        var interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null) {
+            //Debug.Log($"Enter {collision.gameObject.name}");
+            AddInteractable(interactable);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        var interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null) {
+            //Debug.Log($"Exit {collision.gameObject.name}");
+            RemoveInteractable(interactable);
+        }
     }
 }

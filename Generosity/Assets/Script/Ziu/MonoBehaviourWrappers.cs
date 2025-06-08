@@ -4,6 +4,16 @@ using UnityEngine;
 
 namespace Ziu
 {
+    public abstract class MonoBehaviourSingleton<T> : MonoBehaviour
+        where T : MonoBehaviourSingleton<T>
+    {
+        public static T Instance;
+        private void Awake() {
+            Debug.Assert(!Instance);
+            Instance = this as T;
+        }
+    }
+
     public abstract class MonoBehaviourRequire<T> : MonoBehaviour
         where T : Component {
         
