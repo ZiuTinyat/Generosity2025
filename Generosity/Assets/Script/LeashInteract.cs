@@ -34,7 +34,8 @@ public class LeashInteract : MonoBehaviour, IInteractable
     private IEnumerator LeashCoroutine() {
         gc.dog.HoldMove();
         ui.HideInstruction();
-        yield return new WaitForSeconds(0.25f);
+        gc.dog.PlayHarnessAudio();
+        yield return new WaitForSeconds(0.5f);
         gc.dog.UnholdMove();
         gc.dog.SwitchLeashState();
         ui.SetText(gc.dog.isLeashed ? unleashText : leashText);

@@ -35,13 +35,15 @@ public class Dog : MonoBehaviour
     private Transform holdingItemParent;
 
     // Audio
-    public List<AudioClip> barks;
+    public List<AudioClip> barksAudio;
+    public AudioClip harnessAudio;
 
     public void UseHarness() {
         if (wearingHarness) return;
         wearingHarness = true;
         body.sprite = bodySuit;
         SwitchLeashState();
+        PlayHarnessAudio();
     }
 
     public void SwitchLeashState() {
@@ -49,6 +51,11 @@ public class Dog : MonoBehaviour
         leash.gameObject.SetActive(isLeashed);
         UpdateInteractable();
         UpdateMoveAnim();
+    }
+
+    public void PlayHarnessAudio() {
+        audioSource.clip = harnessAudio;
+        audioSource.Play();
     }
 
     public void Pickup(Item item) {
@@ -180,7 +187,7 @@ public class Dog : MonoBehaviour
         // Bark
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (!holdingItem) {
-                audioSource.clip = barks[Random.Range(0, barks.Count)];
+                audioSource.clip = barksAudio[Random.Range(0, barksAudio.Count)];
                 audioSource.Play();
                 //StartCoroutine(WoofCoroutine());
                 animator.SetTrigger("Bark");

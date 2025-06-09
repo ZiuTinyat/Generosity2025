@@ -8,6 +8,8 @@ public class Level : MonoBehaviour
 {
     public Transform masterStart, dogStart;
 
+    public AudioSource earthquake, collapse;
+
     private GameController gc => GameController.Instance;
 
     public void StartLevel(int level) {
@@ -46,9 +48,11 @@ public class Level : MonoBehaviour
 
     private IEnumerator Level0Coroutine() {
         gc.dog.HoldMove();
+        earthquake.Play();
         CameraFader.Fadeout(0);
-        // TODO Sound
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
+        collapse.Play();
+        yield return new WaitForSeconds(1f);
         yield return Dialog(2.5f, $"Oh no! What happened!?");
         yield return Dialog(2.5f, $"I believe it was an earthquake");
 
@@ -77,6 +81,7 @@ public class Level : MonoBehaviour
         
         // Shake
         gc.dog.HoldMove();
+        earthquake.Play();
         yield return CameraShaker.ShakeCoroutine(1.5f, 25f, 2);
 
         // Crash
@@ -85,8 +90,8 @@ public class Level : MonoBehaviour
         evt.scene1.SetActive(false);
         evt.scene2.SetActive(true);
         gc.dog.transform.position = evt.newDogMid.position;
-        // TODO sound
         yield return Dialog(1f, $"{gc.dogName}! {gc.dogName}!");
+        collapse.Play();
         yield return Dialog(2f, $"{gc.dogName}! Where are you!");
 
         // Finding dog
@@ -102,7 +107,7 @@ public class Level : MonoBehaviour
         if (gc.dog.isLeashed) gc.dog.SwitchLeashState();
         CameraFader.Fadein(1f);
         gc.dog.UnholdMove();
-        yield return Dialog(2f, $"Thank god {gc.dogName}! Let's go");
+        yield return Dialog(2f, $"Thank god {gc.dogName}! Let's find the other stairs");
 
     }
 }
