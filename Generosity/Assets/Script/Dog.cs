@@ -96,7 +96,7 @@ public class Dog : MonoBehaviour
     }
 
     public bool GetBarked() {
-        return Input.GetKeyDown(KeyCode.R);
+        return Input.GetKeyDown(KeyCode.Space);
     }
 
     #region Hold Move
@@ -178,7 +178,7 @@ public class Dog : MonoBehaviour
         }
 
         // Bark
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             if (!holdingItem) {
                 audioSource.clip = barks[Random.Range(0, barks.Count)];
                 audioSource.Play();
