@@ -200,8 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5b811b339a3cd4fa452a534635e5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterStart: {fileID: 0}
-  dogStart: {fileID: 0}
+  masterStart: {fileID: 432208977390641107}
+  dogStart: {fileID: 1106610615308879268}
+  earthquake: {fileID: 0}
+  collapse: {fileID: 0}
 --- !u!1 &8680921544009798623
 GameObject:
   m_ObjectHideFlags: 0

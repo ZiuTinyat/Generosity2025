@@ -24,6 +24,12 @@ public class Level : MonoBehaviour
             case 1:
                 StartCoroutine(Level1Coroutine());
                 break;
+            case 2:
+                StartCoroutine(Level2Coroutine());
+                break;
+            case 3:
+                StartCoroutine(Level3Coroutine());
+                break;
             default:
                 break;
         }
@@ -107,7 +113,32 @@ public class Level : MonoBehaviour
         if (gc.dog.isLeashed) gc.dog.SwitchLeashState();
         CameraFader.Fadein(1f);
         gc.dog.UnholdMove();
-        yield return Dialog(2f, $"Thank god {gc.dogName}! Let's find the other stairs");
+        yield return Dialog(2f, $"{gc.dogName} are you injured? We have to move on");
 
+    }
+
+    private IEnumerator Level2Coroutine() {
+        yield return Dialog(4f, $"{gc.dogName} we just need to find the other stairs! You can make it");
+        
+        //yield return new WaitUntil((() => gc.hammerUsed));
+        yield return DialogUntil(() => gc.hammerUsed, $"I can't get through... you need to figure out a way");
+        yield return Dialog(3f, $"Smart boy! I can smash the collapsed wall");
+    }
+
+    private IEnumerator Level3Coroutine() {
+        yield return DialogUntil(() => gc.gameCompleted, $"We made it! I can smell the freedom");
+
+        // dog down
+        gc.dog.HoldMove();
+        // TODO anim
+        yield return CameraFader.FadeoutCoroutine(0.5f);
+        yield return CameraFader.FadeinCoroutine(0.5f);
+        yield return Dialog(2f, $"{gc.dogName} hold on! Please!");
+        yield return Dialog(2f, $"Help! Someone help me!");
+        CameraFader.Fadeout(2f);
+        gc.Helicopter();
+        yield return Dialog(2f, $"HELP!!!");
+        yield return new WaitForSeconds(3f);
+        gc.EndGame();
     }
 }

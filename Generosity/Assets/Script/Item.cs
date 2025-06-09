@@ -67,4 +67,5 @@ public enum PickableItem
     None,
     Ball,
     Harness,
+    Hammer,
 }

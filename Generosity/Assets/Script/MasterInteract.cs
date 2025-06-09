@@ -30,6 +30,8 @@ public class MasterUseInteract : MonoBehaviour, IInteractable
                 return true;
             case PickableItem.Harness:
                 return true;
+            case PickableItem.Hammer:
+                return true;
             default:
                 return false;
         }
@@ -44,6 +46,10 @@ public class MasterUseInteract : MonoBehaviour, IInteractable
             case PickableItem.Harness:
                 Debug.Log("Use Harness");
                 gc.dog.UseHarness();
+                break;
+            case PickableItem.Hammer:
+                Debug.Log("Use Hammer");
+                gc.UseHammer();
                 break;
             default:
                 break;

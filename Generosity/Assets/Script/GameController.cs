@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Ziu;
 
 public class GameController : MonoBehaviourSingleton<GameController>
@@ -9,14 +10,34 @@ public class GameController : MonoBehaviourSingleton<GameController>
     public Dog dog;
     public GameObject barkHint;
     public GameObject dropHint;
+    public AudioSource helicopter;
 
     public string dogName;
 
     public List<Level> levels;
     public int currentLevel;
 
+    public bool gameCompleted = false;
+
+    public bool hammerUsed = false;
+
     public void PassLevel() {
         StartCoroutine(GoNextLevelCoroutine());
+    }
+
+    public void EndGame() {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void UseHammer() {
+        var evt = levels[currentLevel].transform.GetComponentInChildren<Event_lv3>();
+        Debug.Assert(evt);
+        evt.HammerHit();
+        hammerUsed = true;
+    }
+
+    public void Helicopter() {
+        helicopter.Play();
     }
 
     // Start is called before the first frame update
@@ -42,7 +63,7 @@ public class GameController : MonoBehaviourSingleton<GameController>
             yield return CameraFader.FadeinCoroutine();
             dog.UnholdMove();
         } else {
-            Debug.Log("Game completed!");
+            gameCompleted = true;
         }
     }
 }
