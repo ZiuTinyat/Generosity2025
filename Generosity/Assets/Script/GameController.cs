@@ -7,6 +7,10 @@ public class GameController : MonoBehaviourSingleton<GameController>
 {
     public Master master;
     public Dog dog;
+    public GameObject barkHint;
+    public GameObject dropHint;
+
+    public string dogName;
 
     public List<Level> levels;
     public int currentLevel;
@@ -19,7 +23,7 @@ public class GameController : MonoBehaviourSingleton<GameController>
     void Start()
     {
         currentLevel = 0;
-        levels[currentLevel].StartLevel();
+        levels[currentLevel].StartLevel(currentLevel);
     }
 
     // Update is called once per frame
@@ -33,7 +37,8 @@ public class GameController : MonoBehaviourSingleton<GameController>
             dog.HoldMove();
             yield return CameraFader.FadeoutCoroutine();
             levels[currentLevel].UnloadLevel();
-            levels[++currentLevel].StartLevel();
+            ++currentLevel;
+            levels[currentLevel].StartLevel(currentLevel);
             yield return CameraFader.FadeinCoroutine();
             dog.UnholdMove();
         } else {

@@ -10,6 +10,7 @@ public class Master : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidBody;
 
     public Transform handPoint;
+    public TextBubble voice;
     private GameController gc => GameController.Instance;
     private Dog dog => gc.dog;
 

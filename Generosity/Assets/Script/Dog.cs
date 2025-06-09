@@ -68,6 +68,8 @@ public class Dog : MonoBehaviour
         holdingItem = item;
         UnholdMove();
         UpdateInteractable();
+
+        gc.dropHint.SetActive(true);
     }
 
     public void Drop() {
@@ -78,6 +80,8 @@ public class Dog : MonoBehaviour
         holdingItem.Dropoed();
         holdingItem = null;
         UpdateInteractable();
+
+        gc.dropHint.SetActive(false);
     }
 
     public void Use() {
@@ -87,10 +91,12 @@ public class Dog : MonoBehaviour
         holdingItem.Used();
         holdingItem = null;
         UpdateInteractable();
+
+        gc.dropHint.SetActive(false);
     }
 
     public bool GetBarked() {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.R);
     }
 
     #region Hold Move
@@ -172,7 +178,7 @@ public class Dog : MonoBehaviour
         }
 
         // Bark
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
             if (!holdingItem) {
                 audioSource.clip = barks[Random.Range(0, barks.Count)];
                 audioSource.Play();
